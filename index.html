@@ -24,16 +24,70 @@
   <div class="container-fluid">
     <div class="d-flex justify-content-center flex-sm-column flex-md-column flex-lg-row flex-xl-row">
       
-      <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 bg-danger p-2 justify-items-center">
-        <div class="card d-flex justify-content-center">
+      <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 p-2 justify-items-center">
+        <div class="card d-flex justify-content-center border border-danger">
         <img src="https://pokeres.bastionbot.org/images/pokemon/5.png" class="card-img-top" alt="Pokemon img">
           <div class="card-body">
             <h5 class="card-title">Pokemon Name</h5>
-            <a href="#" class="btn btn-danger">Info</a>
+            <button href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">Info</button>
           </div>
         </div>
       </div>
       
+      <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 p-2 justify-items-center">
+        <div class="card d-flex justify-content-center border border-danger">
+        <img src="https://pokeres.bastionbot.org/images/pokemon/5.png" class="card-img-top" alt="Pokemon img">
+          <div class="card-body">
+            <h5 class="card-title">Pokemon Name</h5>
+            <button href="#" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">Info</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header d-flex flex-column">
+          <img src="https://pokeres.bastionbot.org/images/pokemon/5.png" class="card-img-top" style="width: 12rem; height: 12rem;" alt="Pokemon img">
+          <h5 class="modal-title" id="exampleModalLabel">Pokemon name</h5>
+       </div>
+        <div class="modal-body">
+          <table class="table table-bordered">
+            <thead class="table-danger">
+              <tr>
+                <th scope="row col-1">Type</th>
+                <th scope="row">Fire</th>
+              </tr>
+            </thead>
+            <tr>
+              <th scope="row col-1"></th>
+              <th scope="row"></th>
+            </tr>
+            <tr>
+              <th scope="row col-1"></th>
+              <th scope="row"></th>
+            </tr>
+            <tr>
+              <th scope="row col-1"></th>
+              <th scope="row"></th>
+            </tr>
+            <tr>
+              <th scope="row col-1"></th>
+              <th scope="row"></th>
+            </tr>
+            <tr>
+              <th scope="row col-1"></th>
+              <th scope="row"></th>
+            </tr>
+          </table>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
     </div>
   </div>
 
