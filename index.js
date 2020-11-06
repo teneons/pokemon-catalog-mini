@@ -18,20 +18,20 @@ async function generalPokemonsReq () {
 }
 
 
-const cardConstructor = () => {
+const cardConstructor = (name, imgId, url) => {
   const mainCardContainer = document.createElement('div');
     mainCardContainer.className = 'col-sm-6 col-md-5 col-lg-4 col-xl-3 p-2';
   const card = document.createElement('div');
     card.className = 'card border border-danger text-center';
   const img = document.createElement('img');
-    img.src = 'https://pokeres.bastionbot.org/images/pokemon/5.png';
+    img.src = `https://pokeres.bastionbot.org/images/pokemon/${imgId}.png`;
     img.className = 'card-img-top';
     img.alt = 'Pokemon img'
   const cardBody = document.createElement('div');
     cardBody.className = 'card-body'
   const titleH5 = document.createElement('h5');
     titleH5.className = 'card-title';
-    titleH5.textContent = 'Pokemon name';
+    titleH5.textContent = `${name}`; //'Pokemon name'
   const btnInfo = document.createElement('button');
     btnInfo.setAttribute('href', '#');
     btnInfo.className = 'btn btn-outline-danger';
@@ -47,10 +47,16 @@ const cardConstructor = () => {
   titleH5.after(btnInfo);
 }
 
-cardConstructor()
 
 const setGeneralData = (generalD) => {
-  document.querySelector('.card-title').innerHTML = generalD.results[0].name;
+  const generalData = generalD.results;
+
+  generalData.forEach(element => {
+    const id = element.url.match(/\/(\d+)\//)[1];   //id for img url
+
+    cardConstructor(element.name, id, element.url)
+  });
+  
 }
 
 
