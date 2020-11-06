@@ -1,4 +1,5 @@
 
+//request
 async function generalPokemonsReq () {
   try {
     const req = await fetch('https://pokeapi.co/api/v2/pokemon?limit=42')    //get data
@@ -17,8 +18,8 @@ async function generalPokemonsReq () {
   }
 }
 
-
-const cardConstructor = (name, imgId, url) => {
+//card
+const cardConstructor = (namePoki, imgId, urlReqPoki) => {
   const mainCardContainer = document.createElement('div');
     mainCardContainer.className = 'col-sm-6 col-md-5 col-lg-4 col-xl-3 p-2';
   const card = document.createElement('div');
@@ -31,13 +32,14 @@ const cardConstructor = (name, imgId, url) => {
     cardBody.className = 'card-body'
   const titleH5 = document.createElement('h5');
     titleH5.className = 'card-title';
-    titleH5.textContent = `${name}`; //'Pokemon name'
+    titleH5.textContent = `${namePoki}`; //'Pokemon name'
   const btnInfo = document.createElement('button');
     btnInfo.setAttribute('href', '#');
-    btnInfo.className = 'btn btn-outline-danger';
+    btnInfo.className = 'btn btn-outline-danger btnInfo';
     btnInfo.setAttribute('data-toggle', 'modal');
     btnInfo.setAttribute('data-target', '#exampleModal');
     btnInfo.textContent = 'Info';
+    btnInfo.setAttribute('href', `${urlReqPoki}`);
 
   document.querySelector('.cardsContainer').append(mainCardContainer);
   mainCardContainer.append(card);
@@ -59,5 +61,11 @@ const setGeneralData = (generalD) => {
   
 }
 
+//1st load page
+window.onload = generalPokemonsReq();
 
- window.onload = generalPokemonsReq();
+//modal window
+const modalWind = document.getElementById('exampleModal');
+modalWind.addEventListener('shown.bs.modal', () => {
+  console.log(42)
+})
