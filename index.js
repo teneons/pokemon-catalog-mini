@@ -1,8 +1,8 @@
 
 //request
-async function generalPokemonsReq () {
+async function mainPokemonRequest (urlReq) {
   try {
-    const req = await fetch('https://pokeapi.co/api/v2/pokemon?limit=42')    //get data
+    const req = await fetch(`${urlReq}`)    //get data
     const jsonData = await req.json();
     return await setGeneralData(jsonData);
 
@@ -62,7 +62,7 @@ const setGeneralData = (generalD) => {
 }
 
 //1st load page
-window.onload = generalPokemonsReq();
+window.onload = mainPokemonRequest('https://pokeapi.co/api/v2/pokemon?limit=42');
 
 
 
