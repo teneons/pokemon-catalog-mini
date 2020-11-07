@@ -53,12 +53,27 @@ const cardConstructor = (namePoke, imgId, urlReqPoke) => {
 const setGeneralData = (generalD) => {
   const generalData = generalD.results;
 
+  // let size = 4; //размер подмассива
+  // let generalData4 = []; //массив в который будет выведен результат.
+  // for (let i = 0; i <Math.ceil(generalData.length /size); i++){
+  //     generalData4[i] = generalData.slice((i*size), (i*size) + size);
+  // }
+
+  // for(let i = 0; i < generalData4.length; i++) {
+  //   for(let c = 0; c < generalData4.length; c++) {
+  //     generalData4[i].forEach(element => {
+  //       const id = element.url.match(/\/(\d+)\//)[1];   //id for img url
+
+  //       cardConstructor(element.name, id, element.url)
+  //     });
+  //   }
+  // }
+  
   generalData.forEach(element => {
     const id = element.url.match(/\/(\d+)\//)[1];   //id for img url
 
     cardConstructor(element.name, id, element.url)
   });
-  
 }
 
 //1st load page
@@ -66,6 +81,7 @@ let stepCount = 4;
 window.onload = mainPokemonRequest('https://pokeapi.co/api/v2/pokemon?limit=' + stepCount);
 
 document.getElementById('btnLoadMore').onclick = ()=> {
+  document.querySelector('.cardsContainer').innerHTML = "";
   stepCount *= 2;
   mainPokemonRequest(`https://pokeapi.co/api/v2/pokemon?limit=${stepCount}`);
 }
