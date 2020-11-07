@@ -62,8 +62,13 @@ const setGeneralData = (generalD) => {
 }
 
 //1st load page
-window.onload = mainPokemonRequest('https://pokeapi.co/api/v2/pokemon?limit=42');
+let stepCount = 4;
+window.onload = mainPokemonRequest('https://pokeapi.co/api/v2/pokemon?limit=' + stepCount);
 
+document.getElementById('btnLoadMore').onclick = ()=> {
+  stepCount *= 2;
+  mainPokemonRequest(`https://pokeapi.co/api/v2/pokemon?limit=${stepCount}`);
+}
 
 
 //modal window
@@ -72,3 +77,4 @@ modalWind.addEventListener('shown.bs.modal', () => {
   //getPokemonData(document.querySelector('btnInfo').getAttribute('href'))
   console.log(document.getElementById('btnInfo').getAttribute('href'))
 })
+
